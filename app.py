@@ -3,7 +3,16 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, Callb
 import logging
 
 # تنظیمات اولیه
-TOKEN = '7793831713:AAE-KWAHsYCVWAM36t_oubTJiGB57aN6V-8'
+# TOKEN = '7793831713:AAE-KWAHsYCVWAM36t_oubTJiGB57aN6V-8'
+import os
+
+# خواندن متغیر محیطی TELEGRAM_BOT_TOKEN
+telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
+
+# استفاده از توکن در ربات
+from telegram import Bot
+bot = Bot(token=telegram_bot_token)
+
 
 # راه‌اندازی لاگ برای بررسی خطاها
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -47,7 +56,7 @@ def check_message(update: Update, context: CallbackContext):
             break
 
 def main():
-    updater = Updater(TOKEN, use_context=True)
+    updater = Updater(telegram_bot_token, use_context=True)
     dispatcher = updater.dispatcher
 
     # ثبت دستورات
