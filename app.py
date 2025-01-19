@@ -1,9 +1,6 @@
 from telegram import Update
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackContext
 import logging
-
-# تنظیمات اولیه
-# TOKEN = '7793831713:AAE-KWAHsYCVWAM36t_oubTJiGB57aN6V-8'
 import os
 
 # خواندن متغیر محیطی TELEGRAM_BOT_TOKEN
@@ -12,7 +9,6 @@ telegram_bot_token = os.getenv("TELEGRAM_BOT_TOKEN")
 # استفاده از توکن در ربات
 from telegram import Bot
 bot = Bot(token=telegram_bot_token)
-
 
 # راه‌اندازی لاگ برای بررسی خطاها
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
